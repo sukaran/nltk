@@ -8,9 +8,9 @@ import nltk
 from nltk.corpus import wordnet as wn
 
 poly_nouns = list(wn.all_synsets('n'))
-# poly_adjectives = list(wn.all_synsets('adj'))
-# poly_verbs = list(wn.all_synsets('v'))
-# poly_adverbs = list(wn.all_synsets('adv'))
+poly_adjectives = list(wn.all_synsets('a'))
+poly_verbs = list(wn.all_synsets('v'))
+poly_adverbs = list(wn.all_synsets('r'))
 
 
 def calc_words(synset):
@@ -30,11 +30,11 @@ def average_polysemy(synset):
 	average = total_senses(synset) / calc_words(synset)
 	return average
 
-
-print(total_senses(poly_nouns))
-print(calc_words(poly_nouns))
-print(calc_words(poly_nouns))
-print(calc_words(poly_nouns))
-
-# ask eric - the second function called keeps getting set to zero.
-# which leads me to believe that somewhere the 
+print("Polysemy for Nouns: \n")
+print(average_polysemy(poly_nouns))
+print("Polysemy for adjectives: \n")
+print(average_polysemy(poly_adjectives))
+print("Polysemy for Verbs: \n")
+print(average_polysemy(poly_verbs))
+print("Polysemy for Adveb: \n")
+print(average_polysemy(poly_adverbs))
